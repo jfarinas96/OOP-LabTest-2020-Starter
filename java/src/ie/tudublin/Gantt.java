@@ -57,7 +57,20 @@ public class Gantt extends PApplet
 	}
 
 	public void displayTasks() {
+		colorMode(HSB);
+		noStroke();
+		float c = 255 / 9;
+		int i = 0;
 
+		for (Task t:tasks) {
+			float x = map(t.getStart(), 0, 30, left, width - border);
+			float y = map(i, 0, 10, border, height - border);
+			float w = map((t.getEnd() - t.getStart()), 0, 30, 0, width - border - left);
+			float h = (height - (border * 2)) / 12;
+			fill(i * c, 255, 255);
+			rect(x, y + (border * 0.75f), w, h);
+			i++;
+		}
 	}
 	
 	public void mousePressed()
@@ -90,5 +103,6 @@ public class Gantt extends PApplet
 		background(0);
 		drawLines();
 		drawLabels();
+		displayTasks();
 	}
 }
