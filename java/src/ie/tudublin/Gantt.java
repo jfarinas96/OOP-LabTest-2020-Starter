@@ -14,6 +14,9 @@ public class Gantt extends PApplet
 	float label;
 	float left;
 
+	int whichTask = -1;
+	boolean isEnd = false;
+
 	public void loadTasks()
 	{
 		Table table = loadTable("tasks.csv", "header");
@@ -75,12 +78,13 @@ public class Gantt extends PApplet
 	
 	public void mousePressed()
 	{
-		println("Mouse pressed");	
+		// Find which task it is by finding y
+		// Find the start and end of task using x1 and x2
 	}
 
 	public void mouseDragged()
 	{
-		println("Mouse dragged");
+		// Map the mouse onto the screen
 	}
 	
 	public void settings()
